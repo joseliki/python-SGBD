@@ -1,15 +1,15 @@
 import cx_Oracle
 
-db = cx_Oracle.connect('jose', 'jose', '192.168.1.6:1521/ORCL')
+con = cx_Oracle.connect('jose/jose@192.168.1.4/ORCL')
 
-db1 = cx_Oracle.connect('jose/jose@192.168.1.6:1521/ORCL')
+cur = con.cursor()
+cur.execute('select * from Estancias order by codestancia')
+for result in cur:
+    print result
 
-dsn_tns = cx_Oracle.makedsn('192.168.1.6', 1521, 'ORCL')
+cur.close()
+con.close()         
 
-print dsn_tns
-
-(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=192.168.1.6)(PORT=1521)))(CONNECT_DATA=(SID=ORCL)))
-  db2 = cx_Oracle.connect('jose', 'jose', dsn_tns)
 
  
 
