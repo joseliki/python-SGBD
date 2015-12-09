@@ -1,8 +1,13 @@
 import cx_Oracle
+
 db = cx_Oracle.connect('jose', 'jose', '192.168.1.6:1521/ORCL')
+
 db1 = cx_Oracle.connect('jose/jose@192.168.1.6:1521/ORCL')
+
 dsn_tns = cx_Oracle.makedsn('192.168.1.6', 1521, 'ORCL')
+
 print dsn_tns
+
 (DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=192.168.1.6)(PORT=1521)))(CONNECT_DATA=(SID=ORCL)))
   db2 = cx_Oracle.connect('jose', 'jose', dsn_tns)
 
