@@ -5,12 +5,12 @@ import MySQLdb as mdb
 
 connect = mdb.connect('192.168.1.4', 'jose', 'jose', 'hotel');
 
-with connect: 
+with connect:
 
     cur = connect.cursor()
     cur.execute("SELECT * FROM Estancias")
 
-    rows = cur.fetchall()
-
-    for i in rows:
-        print i
+    for i in range(cur.rowcount):
+        
+        registro = cur.fetchone()
+        print registro[0], registro[1]
