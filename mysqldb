@@ -1,0 +1,16 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+
+import MySQLdb as mdb
+
+connect = mdb.connect('192.168.1.4', 'jose', 'jose', 'hotel');
+
+with connect: 
+
+    cur = connect.cursor()
+    cur.execute("SELECT * FROM Estancias")
+
+    rows = cur.fetchall()
+
+    for i in rows:
+        print i
